@@ -17,7 +17,7 @@ spotifyApi
 
   // Access the OVERWHELMED playlist from S account.
   router.get('/music', (req, res) => {
-    let playlist-uri = req.param.URI 
+    //let playlist-uri = req.param.URI 
      spotifyApi.getPlaylist(playlist-uri, { limit : 3})
       .then(function(data) {
         console.log('Some information about this overwhelmed-music playlist', data.body);

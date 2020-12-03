@@ -5,7 +5,7 @@ const Project = require('../models/project-model')
 
 
 
-//Route to access the moodboard: if the apis are called from BE: What do we do there?
+//Route to access the moodboard: 
 router.get('/projects', (req, res) => {
   console.log('loggeduser', req.user); // This allows us to see, when we are logged in, which user in making the request.
   Project.find()

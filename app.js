@@ -37,13 +37,6 @@ app.use(cookieParser());
 
 // Express View engine setup
 
-app.use(require('node-sass-middleware')({
-  src:  path.join(__dirname, 'public'),
-  dest: path.join(__dirname, 'public'),
-  sourceMap: true
-}));
-      
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
@@ -77,6 +70,9 @@ app.use('/', index);
 const suggestionsRoutes = require('./routes/suggestions-routes')
 app.use('/api', suggestionsRoutes)
 
+
+const musicRoutes = require('./routes/music-routes')
+app.use('/api', musicRoutes)
 
 const authRoutes = require('./routes/auth-routes')
 app.use('/api', authRoutes)

@@ -9,10 +9,12 @@ const moodSchema = new Schema ({
   user: {
     type: Schema.Types.ObjectId, 
     ref: 'user' 
-  }},
-  {
-    timestamps: true
-  })
+},
+},
+{
+  timestamps: true
+})
+
 
 const Mood = mongoose.model('Mood', moodSchema);
 module.exports = Mood;

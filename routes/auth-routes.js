@@ -10,6 +10,9 @@ router.post('/signup', (req, res) => {
  
     const username = req.body.username;
     const password = req.body.password;
+    const email = req.body.email;
+    const googleId = req.body.googleId;
+
 
     if (!username || !password) {
       res.status(400).json({ message: 'Provide username and password' });
@@ -27,8 +30,11 @@ router.post('/signup', (req, res) => {
         const salt     = bcrypt.genSaltSync(10);
         const hashPass = bcrypt.hashSync(password, salt);
         const aNewUser = new User({
-            username:username,
-            password: hashPass
+            username: username,
+            password: hashPass,
+            googleId: googleId,
+            email: email,
+            // Note: picture : how to deal (google or tradi)
         });
         aNewUser.save(err => {
             if (err) {

@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 const Project = require('../models/project-model')
 
 
-//Route to retrieve all projects 
+
+//Route to access the moodboard: if the apis are called from BE: What do we do there?
 router.get('/projects', (req, res) => {
   console.log('loggeduser', req.user); // This allows us to see, when we are logged in, which user in making the request.
   Project.find()

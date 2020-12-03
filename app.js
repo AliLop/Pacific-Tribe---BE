@@ -74,8 +74,8 @@ app.use(
 const index = require('./routes/index');
 app.use('/', index);
 
-const projectManagementRoutes = require('./routes/project-routes')
-app.use('/api', projectManagementRoutes)
+const suggestionsRoutes = require('./routes/suggestions-routes')
+app.use('/api', suggestionsRoutes)
 
 
 const authRoutes = require('./routes/auth-routes')

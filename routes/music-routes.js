@@ -5,7 +5,7 @@ const SpotifyWebApi = require('spotify-web-api-node');
 
 const spotifyApi = new SpotifyWebApi({
   clientId: process.env.CLIENT_SPOTIFY_ID,
-  clientSecret: process.env.CLIENT_SECRET
+  clientSecret: process.env.CLIENT_SPOTIFY_SECRET
 });
 
 // Retrieve an access token
@@ -16,8 +16,9 @@ spotifyApi
 
 
   // Access the OVERWHELMED playlist from S account.
-  app.get('/overwhelmed-music', (req, res) => {
-     spotifyApi.getPlaylist('2lIeCmSoFX73ejZ3vuchdD')
+  router.get('/music', (req, res) => {
+    let playlist-uri = req.param.URI 
+     spotifyApi.getPlaylist(playlist-uri, { limit : 3})
       .then(function(data) {
         console.log('Some information about this overwhelmed-music playlist', data.body);
         let overwhelmedResults = data.body;
@@ -28,8 +29,8 @@ spotifyApi
 }) 
 
   // Access the ANXIOUS playlist from S account.
-app.get('/anxious-music', (req, res) => {
-  spotifyApi.getPlaylist('0NspLxJgEk9Uop7K4uURjd')
+router.get('/anxious-music', (req, res) => {
+  spotifyApi.getPlaylist('0NspLxJgEk9Uop7K4uURjd', { limit : 3})
    .then(function(data) {
      console.log('Some information about this anxious-music playlist', data.body);
      let anxiousResults = data.body;
@@ -40,8 +41,8 @@ app.get('/anxious-music', (req, res) => {
 }) 
 
 // Access the CALM playlist from S account.
-app.get('/calm-music', (req, res) => {
-  spotifyApi.getPlaylist('4SlG7b0D95WD4DHqF672fx')
+router.get('/calm-music', (req, res) => {
+  spotifyApi.getPlaylist('4SlG7b0D95WD4DHqF672fx', { limit : 3})
    .then(function(data) {
      console.log('Some information about this calm-music playlist', data.body);
      let calmResults = data.body;
@@ -53,8 +54,8 @@ app.get('/calm-music', (req, res) => {
 
 
 // Access the POSITIVE playlist from S account.
-app.get('/positive-music', (req, res) => {
-  spotifyApi.getPlaylist('449ZiG4lot1KDWuBcxnm4Y')
+router.get('/positive-music', (req, res) => {
+  spotifyApi.getPlaylist('449ZiG4lot1KDWuBcxnm4Y', { limit : 3})
    .then(function(data) {
      console.log('Some information about this positive-music playlist', data.body);
      let positiveResults = data.body;
@@ -65,8 +66,8 @@ app.get('/positive-music', (req, res) => {
 }) 
 
 // Access the ENTHUSIASTIC playlist from S account.
-app.get('/enthusiastic-music', (req, res) => {
-  spotifyApi.getPlaylist('79b4c6BHGyHRrZhbqFYw4p')
+router.get('/enthusiastic-music', (req, res) => {
+  spotifyApi.getPlaylist('79b4c6BHGyHRrZhbqFYw4p', { limit : 3})
    .then(function(data) {
      console.log('Some information about this enthusiastic-music playlist', data.body);
      let enthusiasticResults = data.body;
@@ -76,5 +77,4 @@ app.get('/enthusiastic-music', (req, res) => {
    });
 }) 
 
-
-
+module.exports = router;

@@ -10,10 +10,6 @@ const moodSchema = new Schema ({
     type: Schema.Types.ObjectId, 
     ref: 'user' 
 },
-  rating: {
-    type: Number,
-    enum: [2, 4, 6, 8, 10],
-    default: 6
 },
 {
   timestamps: true

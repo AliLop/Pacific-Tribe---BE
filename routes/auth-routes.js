@@ -72,7 +72,23 @@ router.post('/signup', (req, res) => {
     })(req, res);
   })
 
+  //logout
+router.post('/logout', (req, res) => {
+  //passport destroys the session 
+  req.logout();
+  res.status(200).json({ message: 'Log out success!'})
+});
 
+//loggedIn
+router.get('/loggedin', (req, res) => {
+  if (req.isAuthenticated()) {
+    //some user is authenticated
+    res.json(req.user);
+    return;
+  }
+  //no one is uthenticated
+  res.json({});
+})
 
 router.get(
     "/auth/google",

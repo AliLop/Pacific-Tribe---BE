@@ -14,11 +14,20 @@ spotifyApi
   .then(data => spotifyApi.setAccessToken(data.body['access_token']))
   .catch(error => console.log('Something went wrong when retrieving an access token', error));
 
+  // Need to complete the playlist URI // Do we need the value?
+    let mood = req.params.value
+
+    playlistURI
+    // 
+
+
+
+
 
   // Access the OVERWHELMED playlist from S account.
   router.get('/music', (req, res) => {
     // let playlist-uri = req.param.URI 
-     spotifyApi.getPlaylist(playlist-uri, { limit : 3})
+     spotifyApi.getPlaylist(playlistURI, { limit : 3})
       .then(function(data) {
         console.log('Some information about this overwhelmed-music playlist', data.body);
         let overwhelmedResults = data.body;

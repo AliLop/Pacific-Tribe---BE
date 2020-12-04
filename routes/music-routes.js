@@ -14,17 +14,35 @@ spotifyApi
   .then(data => spotifyApi.setAccessToken(data.body['access_token']))
   .catch(error => console.log('Something went wrong when retrieving an access token', error));
 
-  // Need to complete the playlist URI // Do we need the value?
-    // let mood = req.params.value
+   
+  router.get('/music/:Id/mood', (req, res) => {
+ 
+  let userId = req.params.Id;
+    User.findById(userId)
+      .then((user) => {
+        let index = user.history.length;
+        let MoodOfTheDay = user.history[index];
+        return Mood.find({name: MoodOfTheDay})
+      })
+      .then ((mood) => {
+        let playlistURI = mood.spotifyURI
+        spotifyApi.getPlaylist(playlistURI, {limit : 3})
+        .then(function(data) {
+          console.log('Some information about this music playlist', data.body);
+          let musicFromApi = data.body;
+          res.json(musicFromApi);
+        }, function(err) {
+          console.log('Something went wrong!', err);
+        });
+      }) 
+  })
 
-   // playlistURI
-    // 
 
 
 
+  //pREVIOUS APPROACH.
 
-
-  // Access the OVERWHELMED playlist from S account.
+/*
   router.get('/music', (req, res) => {
     // let playlist-uri = req.param.URI 
      spotifyApi.getPlaylist(playlistURI, { limit : 3})
@@ -85,5 +103,5 @@ router.get('/enthusiastic-music', (req, res) => {
      console.log('Something went wrong!', err);
    });
 }) 
-
+*/
 module.exports = router;

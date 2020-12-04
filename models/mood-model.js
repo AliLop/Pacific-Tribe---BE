@@ -12,7 +12,7 @@ const moodSchema = new Schema ({
   sentences: [],
   meditationURL: [],
   yogaURL: [],
-  cookingURL: [],
+  inspirationURL: [],
   coachingURL: [],
 },
 {

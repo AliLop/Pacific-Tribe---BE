@@ -15,9 +15,9 @@ spotifyApi
   .catch(error => console.log('Something went wrong when retrieving an access token', error));
 
   // Need to complete the playlist URI // Do we need the value?
-    let mood = req.params.value
+    // let mood = req.params.value
 
-    playlistURI
+   // playlistURI
     // 
 
 

@@ -45,13 +45,13 @@ router.get('/user/:Id/mood', (req, res) =>{
 // RETRIEVE THE MOOD ATTRIBUTES FOR A SPECIFIC MOOD
 router.get('/moods/:mood', (req, res) =>{
   let moodOfTheDay = req.params.mood
-
-  Mood.find({name: {moodOfTheDay}})
-  .then ((mood) => {
+  console.log(`THIS IS THE MOOOOOOD`, moodOfTheDay)
+  Mood.find({name: moodOfTheDay})
+  .then((mood) => {
       res.json(mood)
     })
   .catch((err) => {
-    res.render('error', {err})
+    res.json(err)
   });
 }); 
 

@@ -67,10 +67,6 @@ app.use(
 const index = require('./routes/index');
 app.use('/', index);
 
-const suggestionsRoutes = require('./routes/suggestions-routes')
-app.use('/api', suggestionsRoutes)
-
-
 const musicRoutes = require('./routes/music-routes')
 app.use('/api', musicRoutes)
 

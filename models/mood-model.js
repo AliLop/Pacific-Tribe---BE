@@ -6,10 +6,14 @@ const moodSchema = new Schema ({
     type: String,
     enum: ["overwhelmed", "anxious", "calm", "positive", "enthusiastic"]
   },
-  user: {
-    type: Schema.Types.ObjectId, 
-    ref: 'user' 
-},
+  spotifyURI: {
+    type: String,
+  },
+  sentences: [],
+  meditationURL: [],
+  yogaURL: [],
+  cookingURL: [],
+  coachingURL: [],
 },
 {
   timestamps: true

@@ -44,7 +44,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 app.use(session({
   secret: 'projectapp',
-  cookie: {expire: 60000},
+  //cookie: {expire: 60000},
   rolling: true
 }))
 
@@ -52,7 +52,7 @@ app.use(passport.initialize());
 app.use(passport.session())
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Project 3 - Back End';
 
 // Allowing the frontend to get resources from the BE. This is essential for allowing FE to access our BE.
 // on met donc l'origin de FE le port 3000:
@@ -72,5 +72,8 @@ app.use('/api', musicRoutes)
 
 const authRoutes = require('./routes/auth-routes')
 app.use('/api', authRoutes)
+
+const moodRoutes = require('./routes/mood-routes')
+app.use('/api', moodRoutes)
 
 module.exports = app;

@@ -9,7 +9,8 @@ const Mood = require('../models/mood-model');
 // POST ROUTE TO UPDATE THE DAILY MOOD
 router.put('/user/:Id/mood', (req, res) =>{
   let userId = req.params.Id;
-  let moodOfTheDay = req.body.value;
+  let moodOfTheDay = req.body.moodOfTheDay;
+  
   User.findByIdAndUpdate(userId, {$push: {
     history: moodOfTheDay,
     }}, {new: true})
@@ -19,7 +20,7 @@ router.put('/user/:Id/mood', (req, res) =>{
   .catch((err) => {
     res.render('error', {err})
   });
-}); 
+});
 
 
 

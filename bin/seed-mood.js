@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 // const User = require('../models/user-model.js')
 const Mood = require('../models/mood-model.js')
 
-mongoose.connect("mongodb+srv://admin:admin@project3.n1jht.mongodb.net/Project3?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGODB_URI, {
   useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true

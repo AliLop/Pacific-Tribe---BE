@@ -15,7 +15,7 @@ router.put('/user/:Id/mood', (req, res) =>{
     history: moodOfTheDay,
     }}, {new: true})
   .then((user)=>{
-   console.log(user)
+   console.log("Here is the updated user with one more item in history array:", user)
   })
   .catch((err) => {
     res.render('error', {err})
@@ -26,17 +26,24 @@ router.put('/user/:Id/mood', (req, res) =>{
 // RETRIEVE THE MOOD OF THE DAY CHOSEN BY ONE USER
 router.get('/user/:Id/mood', (req, res) =>{
   let userId = req.params.Id;
-console.log(`PROBLEMMMMMMMMM`, userId)
-  User.findById(userId)
-  .then((user) => {
-    let index = user.history.length;
-    let MoodOfTheDay = user.history[index];
-    console.log(`HERE`, MoodOfTheDay)
-    return Mood.find({name: MoodOfTheDay})
-  })
-  .then ((mood) => {
-      res.json(mood)
-    })
+  console.log(`PROBLEMMMMMMMMM`, userId)
+// Just to test:
+User.findById({userId})
+.then((resultFromId) => {
+  console.log(`resultFromId ${resultFromId}`);
+})
+  //.then((user) => {
+  //  console.log("The user for who we want to find the mood", user)
+    //let firstMood = user.history[0]
+   //let index = user.history.length;
+   //let LastMood = user.history[index];
+ //  return Mood.find({name: firstMood})
+ // })
+  //.then ((mood) => {
+ //  console.log(`HERE IS THE MOOD OF THE DAY`, mood)
+ //    res.json(mood)
+ //  return
+  //  })
   .catch((err) => {
     res.render('error', {err})
   });

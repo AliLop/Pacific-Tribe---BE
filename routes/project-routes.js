@@ -64,6 +64,7 @@ router.post('/logout', (req, res) => {
 router.get('/loggedIn', (req, res) => {
   if(req.isAuthenticated()) {
     // some user is authenticated.
+    console.log("Req.user is:", req.user)
     res.json(req.user);
     return;
   }
@@ -73,3 +74,4 @@ router.get('/loggedIn', (req, res) => {
 
 
 module.exports = router;
+

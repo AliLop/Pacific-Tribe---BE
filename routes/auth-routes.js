@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs')
 const User = require('../models/user-model');
 const passport = require('passport')
-
+const mongoose = require('mongoose');
 
 
 router.post('/signup', (req, res) => {

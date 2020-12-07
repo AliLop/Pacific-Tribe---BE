@@ -27,14 +27,14 @@ router.put('/user/:Id/mood', (req, res) =>{
 router.get('/user/:Id/mood', (req, res) =>{
   let userId = req.params.Id;
   console.log(`PROBLEMMMMMMMMM`, userId)
-// Just to test:
-User.findById({userId})
+
+User.findById(userId)
 .then((resultFromId) => {
   console.log(`resultFromId ${resultFromId}`);
 })
   //.then((user) => {
   //  console.log("The user for who we want to find the mood", user)
-    //let firstMood = user.history[0]
+ 
    //let index = user.history.length;
    //let LastMood = user.history[index];
  //  return Mood.find({name: firstMood})
@@ -53,7 +53,7 @@ User.findById({userId})
 // RETRIEVE THE MOOD ATTRIBUTES FOR A SPECIFIC MOOD
 router.get('/moods/:mood', (req, res) =>{
   let moodOfTheDay = req.params.mood
-  console.log(`THIS IS THE MOOOOOOD`, moodOfTheDay)
+  console.log(`THIS IS THE MOOD OF THE DAY`, moodOfTheDay)
   Mood.find({name: moodOfTheDay})
   .then((mood) => {
       res.json(mood)

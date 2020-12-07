@@ -16,6 +16,7 @@ router.put('/user/:Id/mood', (req, res) =>{
     }}, {new: true})
   .then((user)=>{
    console.log("Here is the updated user with one more item in history array:", user)
+   res.json(user);
   })
   .catch((err) => {
     res.render('error', {err})
@@ -33,7 +34,7 @@ router.put('/user/:Id/mood', (req, res) =>{
 User.findById(userId)
   .then((user) => {
     
-   let index = user.history.length - 1;
+   let index = user.history.length -1;
    let lastMood = user.history[index];
    res.json(lastMood);
   })

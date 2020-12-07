@@ -25,7 +25,7 @@ router.put('/user/:Id/mood', (req, res) =>{
 
 
 // RETRIEVE THE MOOD OF THE DAY CHOSEN BY ONE USER
-    router.get('/user/:id/mood', (req, res) => { 
+router.get('/user/:id/mood', (req, res) => { 
   let userId = req.params.id;
  // getting user from the session - const userId = req.user._id,
   console.log(`PROBLEMMMMMMMMM`, userId)

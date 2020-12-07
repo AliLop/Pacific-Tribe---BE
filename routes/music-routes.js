@@ -14,7 +14,25 @@ spotifyApi
   .then(data => spotifyApi.setAccessToken(data.body['access_token']))
   .catch(error => console.log('Something went wrong when retrieving an access token', error));
 
-   
+
+  router.get('/music/:spotifyURI', (req, res) => {
+ 
+    let spotifyURI = req.params.spotifyURI;
+
+    spotifyApi.getPlaylist(spotifyURI, {limit : 10})
+      .then((data) => {
+      console.log('Some information about this music playlist', data.body);
+      let musicFromApi = data.body;
+      res.json(musicFromApi);
+          })
+          .catch((err) => {
+            res.render('error', {err})
+          });
+    }) 
+    
+  
+  
+  /*
   router.get('/music/:Id/mood', (req, res) => {
  
   let userId = req.params.Id;
@@ -26,7 +44,7 @@ spotifyApi
       })
       .then ((mood) => {
         let playlistURI = mood.spotifyURI
-        spotifyApi.getPlaylist(playlistURI, {limit : 3})
+        spotifyApi.getPlaylist(playlistURI, {limit : 10})
         .then(function(data) {
           console.log('Some information about this music playlist', data.body);
           let musicFromApi = data.body;
@@ -36,7 +54,7 @@ spotifyApi
         });
       }) 
   })
-
+*/
 
 
 

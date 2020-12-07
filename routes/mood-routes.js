@@ -24,28 +24,21 @@ router.put('/user/:Id/mood', (req, res) =>{
 
 
 // RETRIEVE THE MOOD OF THE DAY CHOSEN BY ONE USER
-router.get('/user/:Id/mood', (req, res) =>{
-  let userId = req.params.Id;
+ 
+    router.get('/user/:id/mood', (req, res) => { 
+  let userId = req.params.id;
+ // getting user from the session - const userId = req.user._id,
   console.log(`PROBLEMMMMMMMMM`, userId)
 
 User.findById(userId)
-.then((resultFromId) => {
-  console.log(`resultFromId ${resultFromId}`);
-})
-  //.then((user) => {
-  //  console.log("The user for who we want to find the mood", user)
- 
-   //let index = user.history.length;
-   //let LastMood = user.history[index];
- //  return Mood.find({name: firstMood})
- // })
-  //.then ((mood) => {
- //  console.log(`HERE IS THE MOOD OF THE DAY`, mood)
- //    res.json(mood)
- //  return
-  //  })
+  .then((user) => {
+    
+   let index = user.history.length - 1;
+   let lastMood = user.history[index];
+   res.json(lastMood);
+  })
   .catch((err) => {
-    res.render('error', {err})
+    res.json({ message:`error occurred ${err}`})
   });
 }); 
 

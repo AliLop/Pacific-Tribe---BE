@@ -56,7 +56,7 @@ router.get('/moods/:mood', (req, res) =>{
 }); 
 
 // RETRIEVE THE WHOLE ARRAY OF MOODS FOR ONE USER
-router.get('/graph/:id', (req, res) =>{
+router.get('/chart/:id', (req, res) =>{
 let userId = req.params.id;
   
   User.findById(userId)

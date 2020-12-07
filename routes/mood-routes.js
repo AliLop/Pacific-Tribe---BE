@@ -15,7 +15,8 @@ router.put('/user/:Id/mood', (req, res) =>{
     history: moodOfTheDay,
     }}, {new: true})
   .then((user)=>{
-   console.log("Here is the updated user with one more item in history array:", user)
+    console.log("Here is the updated user with one more item in history array:", user)
+    res.json(user);
   })
   .catch((err) => {
     res.render('error', {err})
@@ -24,7 +25,6 @@ router.put('/user/:Id/mood', (req, res) =>{
 
 
 // RETRIEVE THE MOOD OF THE DAY CHOSEN BY ONE USER
- 
     router.get('/user/:id/mood', (req, res) => { 
   let userId = req.params.id;
  // getting user from the session - const userId = req.user._id,

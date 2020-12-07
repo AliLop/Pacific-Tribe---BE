@@ -28,7 +28,7 @@ router.get('/user/:Id/mood', (req, res) =>{
   let userId = req.params.Id;
   console.log(`PROBLEMMMMMMMMM`, userId)
 // Just to test:
-User.findById({userId})
+User.findById(userId)
 .then((resultFromId) => {
   console.log(`resultFromId ${resultFromId}`);
 })

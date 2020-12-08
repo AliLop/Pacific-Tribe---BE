@@ -5,7 +5,6 @@ const User = require('../models/user-model');
 const Mood = require('../models/mood-model');
 
 
-
 // POST ROUTE TO UPDATE THE DAILY MOOD
 router.put('/user/:Id/mood', (req, res) =>{
   let userId = req.params.Id;
@@ -15,7 +14,7 @@ router.put('/user/:Id/mood', (req, res) =>{
     history: moodOfTheDay,
     }}, {new: true})
   .then((user)=>{
-   console.log("Here is the updated user with one more item in history array:", user)
+   //console.log("Here is the updated user with one more item in history array:", user)
    res.json(user);
   })
   .catch((err) => {
@@ -28,7 +27,7 @@ router.put('/user/:Id/mood', (req, res) =>{
 router.get('/user/:id/mood', (req, res) => { 
   let userId = req.params.id;
  // getting user from the session - const userId = req.user._id,
-  console.log(`PROBLEMMMMMMMMM`, userId)
+  //console.log(`PROBLEMMMMMMMMM`, userId)
 User.findById(userId)
   .then((user) => {
     
@@ -45,7 +44,7 @@ User.findById(userId)
 // RETRIEVE THE MOOD ATTRIBUTES FOR A SPECIFIC MOOD
 router.get('/moods/:mood', (req, res) =>{
   let moodOfTheDay = req.params.mood
-  console.log(`THIS IS THE MOOD OF THE DAY`, moodOfTheDay)
+  //console.log(`THIS IS THE MOOD OF THE DAY`, moodOfTheDay)
   Mood.find({name: moodOfTheDay})
   .then((mood) => {
       res.json(mood)

@@ -21,7 +21,7 @@ spotifyApi
 
     spotifyApi.getPlaylist(spotifyURI, {limit : 10})
       .then((data) => {
-      console.log('Some information about this music playlist', data.body);
+      //console.log('Some information about this music playlist', data.body);
       let musicFromApi = data.body;
       res.json(musicFromApi);
           })

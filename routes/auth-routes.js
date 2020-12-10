@@ -103,7 +103,7 @@ router.get(
 router.get(
     "/auth/google/callback",
     passport.authenticate("google", {
-      successRedirect: `${process.env.CLIENT_HOSTNAME}/projects`,
+      successRedirect: `${process.env.CLIENT_HOSTNAME}/daily-mood`,
       failureRedirect: `${process.env.CLIENT_HOSTNAME}/login`
     })
   );

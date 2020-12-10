@@ -57,7 +57,7 @@ app.locals.title = 'Project 3 - Back End';
 app.use(
   cors({
     credentials: true,
-    origin: [process.env.CLIENT_HOSTNAME]
+    origin: [process.env.CLIENT_HOSTNAME, 'http://localhost:3000']
   })
 )
 
